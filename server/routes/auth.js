@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { OAuth2Client } = require('google-auth-library');
-const User = require('../models/user');
+const User = require('../models/User');
 const router = express.Router();
 const client = new OAuth2Client('123391924209-nhs08cakrvmdodklsjeu2c10hg3pl061.apps.googleusercontent.com');
 
