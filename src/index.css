@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* UrjaLink Design System - Solar Energy Marketplace */
+
+@layer base {
+  :root {
+    /* Core Background & Foreground */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* Card Components */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    /* Popover Components */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Solar Energy Theme Colors */
+    --primary: 142 76% 36%; /* Solar Green #22c55e */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 142 76% 46%; /* Lighter green for glow effects */
+
+    --secondary: 217 91% 60%; /* Tech Blue #3b82f6 */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 217 91% 70%;
+
+    --accent: 45 93% 47%; /* Energy Gold #fbbf24 */
+    --accent-foreground: 39 100% 5%;
+    --accent-glow: 45 93% 57%;
+
+    /* Utility Colors */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.75rem;
+
+    /* Solar Gradients */
+    --gradient-solar: linear-gradient(135deg, hsl(142 76% 36%), hsl(45 93% 47%));
+    --gradient-tech: linear-gradient(135deg, hsl(217 91% 60%), hsl(142 76% 36%));
+    --gradient-energy: linear-gradient(135deg, hsl(45 93% 47%), hsl(142 76% 46%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(142 76% 98%));
+
+    /* Energy Effects */
+    --glow-solar: 0 0 20px hsl(142 76% 36% / 0.3);
+    --glow-energy: 0 0 30px hsl(45 93% 47% / 0.4);
+    --glow-tech: 0 0 25px hsl(217 91% 60% / 0.3);
+
+    /* Animation Timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Dark Mode Core */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    /* Dark Mode Cards */
+    --card: 222.2 84% 7%;
+    --card-foreground: 210 40% 98%;
+
+    /* Dark Mode Popover */
+    --popover: 222.2 84% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Dark Mode Solar Colors */
+    --primary: 142 76% 46%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --primary-glow: 142 76% 56%;
+
+    --secondary: 217 91% 70%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --secondary-glow: 217 91% 80%;
+
+    --accent: 45 93% 57%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --accent-glow: 45 93% 67%;
+
+    /* Dark Mode Utilities */
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 76% 46%;
+
+    /* Dark Mode Gradients */
+    --gradient-solar: linear-gradient(135deg, hsl(142 76% 46%), hsl(45 93% 57%));
+    --gradient-tech: linear-gradient(135deg, hsl(217 91% 70%), hsl(142 76% 46%));
+    --gradient-energy: linear-gradient(135deg, hsl(45 93% 57%), hsl(142 76% 56%));
+    --gradient-subtle: linear-gradient(180deg, hsl(222.2 84% 4.9%), hsl(222.2 84% 7%));
+
+    /* Dark Mode Glows */
+    --glow-solar: 0 0 30px hsl(142 76% 46% / 0.4);
+    --glow-energy: 0 0 40px hsl(45 93% 57% / 0.5);
+    --glow-tech: 0 0 35px hsl(217 91% 70% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}
+
+@layer components {
+  /* Energy Button Variants */
+  .btn-solar {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-[var(--glow-solar)] hover:scale-105;
+  }
+
+  .btn-tech {
+    @apply bg-gradient-to-r from-secondary to-secondary-glow text-secondary-foreground font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-[var(--glow-tech)] hover:scale-105;
+  }
+
+  .btn-energy {
+    @apply bg-gradient-to-r from-accent to-accent-glow text-accent-foreground font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-[var(--glow-energy)] hover:scale-105;
+  }
+
+  /* Glowing Cards */
+  .card-glow {
+    @apply bg-card border border-border/50 rounded-xl p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--glow-solar)];
+  }
+
+  .card-energy {
+    @apply bg-gradient-to-br from-card to-primary/5 border border-primary/20 rounded-xl p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:shadow-[var(--glow-solar)];
+  }
+
+  /* Energy Pulse Animation */
+  .energy-pulse {
+    @apply animate-pulse;
+  }
+
+  .energy-glow {
+    @apply shadow-[var(--glow-solar)];
+  }
+
+  /* Floating Elements */
+  .floating {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Energy Particles Background */
+  .energy-bg {
+    background: 
+      radial-gradient(circle at 20% 20%, hsl(142 76% 36% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(45 93% 47% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, hsl(217 91% 60% / 0.05) 0%, transparent 50%);
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-md bg-black/10 border border-white/10;
+  }
+}
